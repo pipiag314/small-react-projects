@@ -1,17 +1,19 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { randomBetween0_255 } from "./helper";
 
-const InputComponent = ({
-  red,
-  green,
-  blue,
-}: {
+interface InputComponentProps {
   red: number;
   green: number;
   blue: number;
-}) => {
+}
+
+const InputComponent = ({ red, green, blue }: InputComponentProps) => {
   const inputRef = useRef<null | HTMLInputElement>(null);
   const [isCopied, setIsCopied] = useState(false);
+
+  useEffect(() => { 
+    setIsCopied(false);
+  }, [red])
 
   const handleCopy = () => {
     if (!inputRef.current) return;
