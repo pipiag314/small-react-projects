@@ -22,10 +22,11 @@ const Rating = ({ numberOfStars = 5 }: RatingProps) => {
     <div className="flex">
       {[...Array(numberOfStars)].map((_, index) => (
         <span
+          key={index}
           className="cursor-pointer hover:scale-125 transition-all duration-100 ease-in-out"
           onMouseEnter={() => handleMouseEnter(index)}
           onClick={() => rate(index)}>
-          {rating > index ? <FaStar size={50} /> : <CiStar size={50} />}
+          {rating > index ? <FaStar size={50} color="yellow" /> : <CiStar size={50} />}
         </span>
       ))}
     </div>
