@@ -77,7 +77,7 @@ const ImageSlider = () => {
         </button>
         <div className="absolute bottom-2 flex gap-2">
           {photos?.map((_, index) => (
-            <button onClick={() => changePhoto(index)} className={`w-5 h-5 rounded-full bg-white ${index === currentSlide && "bg-[black]"}`}></button>
+            <button onClick={() => changePhoto(index)} className={`w-5 h-5 rounded-full bg-gray-400 ${index === currentSlide && "bg-[#fff]"}`}></button>
           ))}
         </div>
       </div>
