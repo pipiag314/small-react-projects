@@ -43,6 +43,11 @@ const ImageSlider = () => {
     }
   };
 
+
+  const changePhoto = (index: number) => {
+    setCurrentSlide(index);
+  }
+
   return (
     <div>
       <div>Images:</div>
@@ -70,6 +75,11 @@ const ImageSlider = () => {
           }`}>
           <BiRightArrow />
         </button>
+        <div className="absolute bottom-2 flex gap-2">
+          {photos?.map((_, index) => (
+            <button onClick={() => changePhoto(index)} className={`w-5 h-5 rounded-full bg-white ${index === currentSlide && "bg-[black]"}`}></button>
+          ))}
+        </div>
       </div>
     </div>
   );
