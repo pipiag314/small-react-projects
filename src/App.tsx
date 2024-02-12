@@ -3,6 +3,7 @@ import Accordion from './components/Accordion/Accordion'
 import ImageSlider from './components/Image-slider/ImageSlider'
 import RandomColorGenerator from './components/RandomColorGenerator/RandomColorGenerator'
 import Rating from './components/Rating/Rating'
+import LoadMoreData from './components/load-more-data/LoadMoreData'
 
 
 function App() {
@@ -23,6 +24,10 @@ function App() {
       <section className='h-screen flex flex-col justify-start items-center'>
         <h1 className='text-[red] text-8xl font-bold mb-10'>Image Slider</h1>
         <ImageSlider />
+      </section>
+      <section className='h-screen flex flex-col justify-start items-center'>
+        <h1 className='text-[red] text-8xl font-bold mb-10'>Load more data</h1>
+        <LoadMoreData />
       </section>
     </main>
   )
