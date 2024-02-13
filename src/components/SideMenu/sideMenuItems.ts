@@ -14,7 +14,23 @@ export const menuItems = [
     },
     {
         label: "About",
-        to: "/about"
+        to: "/about",
+        children: [
+            {
+                label: "About Us",
+                to: "about-us",
+                children: [
+                    {
+                        label: "Team",
+                        to: "team"
+                    }
+                ],
+            },
+            {
+                label: "About Company",
+                to: "about-company"
+            }
+        ]
     },
     {
         label: "Contact",
