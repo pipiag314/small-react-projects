@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MenuItemT, MenuItemsType } from "./sideMenuItems";
 
 type SideMenuProps = {
@@ -9,24 +10,23 @@ const MenuList = ({ menuItems }: { menuItems: MenuItemsType }) => {
     <div>
       {menuItems.length > 0
         ? menuItems.map((item) => {
-            return (
-                <MenuItem item={item} />
-            );
+            return <MenuItem item={item} />;
           })
         : null}
     </div>
   );
 };
 
-const MenuItem = ({item} : {item: MenuItemT}) => {
+const MenuItem = ({ item }: { item: MenuItemT }) => {
+  const [showChildren, setShowChildren] = useState(false);
   return (
     <div>
-      <h1>{item.label}</h1>
-      {
-        item.children
-         ? <div className="pl-5"><MenuList menuItems={item.children} /></div>
-         : null 
-      }
+      <h1 onClick={() => setShowChildren(!showChildren)}>{item.label} {item.children ? (showChildren) ? "-" : "+" : ""}{}</h1>
+      {item.children && showChildren ? (
+        <div className="pl-5">
+          <MenuList menuItems={item.children} />
+        </div>
+      ) : null}
     </div>
   );
 };
